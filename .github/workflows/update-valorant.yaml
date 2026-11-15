@@ -63,8 +63,11 @@ jobs:
               
               new_text = (
                   f'<!-- VALORANT_START -->\n'
-                  f'Last Online on Valorant: **{last_date}**  \n'
-                  f'Current Rank: **{current_rank}**\n'
+                  f'```bash\n'
+                  f'$ valorant --status\n'
+                  f'Last Online: {last_date}\n'
+                  f'Current Rank: {current_rank}\n'
+                  f'```\n'
                   f'<!-- VALORANT_END -->'
               )
               
