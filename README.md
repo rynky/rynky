@@ -2,7 +2,7 @@
 
 Hold my gamer socks.
 
-Check out my most recent project, [**Cyber West Standoff ⤴**](https://rkbyte.itch.io/cyber-west-standoff)
+Check out my most recent project, [**Cyber West Standoff**](https://rkbyte.itch.io/cyber-west-standoff)
 
 <img width="460" height="255" alt="image" src="https://github.com/user-attachments/assets/8c9b3cbb-ebb7-4078-b8c0-a40844c2121f" />
 
