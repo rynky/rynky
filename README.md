@@ -1,32 +1,16 @@
 <div align="center">
 
+```bash
 Hold my gamer socks.
 
 HARDWARE 🛠️ GAME DESIGN 🕹️ PRODUCTIVITY 💡
 
-Check out my most recent project, [**Cyber West Standoff**](https://rkbyte.itch.io/cyber-west-standoff)
+Check out my most recent project, Cyber West Standoff:
+https://rkbyte.itch.io/cyber-west-standoff
+```
 
-<img width="460" height="255" alt="image" src="https://github.com/user-attachments/assets/8c9b3cbb-ebb7-4078-b8c0-a40844c2121f" />
+<div align="left">
 
 <!-- VALORANT_START -->
-Last Online on VALORANT: **Nov 8**  
-Current Rank: **Platinum 2**
-<!-- VALORANT_END -->
-
-</div>
-
-
-<!--
-**rynky/rynky** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+```bash
+$ valorant --status
