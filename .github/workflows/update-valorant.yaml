@@ -61,12 +61,16 @@ jobs:
               with open('README.md', 'r', encoding='utf-8') as f:
                   content = f.read()
               
+              line1 = f"Last Online: {last_date}"
+              line2 = f"Current Rank: {current_rank}"
+              width = 96  # Approximate inner character width of a full-width GitHub README code block
+
               new_text = (
                   f'<!-- VALORANT_START -->\n'
                   f'```bash\n'
-                  f'$ valorant --status\n'
-                  f'Last Online: {last_date}\n'
-                  f'Current Rank: {current_rank}\n'
+                  f'$ valorant --status\n\n'
+                  f'{line1.center(width).rstrip()}\n'
+                  f'{line2.center(width).rstrip()}\n'
                   f'```\n'
                   f'<!-- VALORANT_END -->'
               )
