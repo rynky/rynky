@@ -13,13 +13,16 @@ https://rkbyte.itch.io/cyber-west-standoff
 
 <div align="left">
 
-<!-- VALORANT_START -->
+
 ```bash
 $ valorant --status
-
-                                               Last Online: Nov 8
-                                            Current Rank: Platinum 2
 ```
-<!-- VALORANT_END -->
 
 </div>
+
+<div align="center">
+  
+<!-- VALORANT_START -->
+```bash
+Last Online: Nov 8
+Current Rank: Platinum 2
