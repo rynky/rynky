@@ -1,0 +1,91 @@
+name: Update Valorant Stats
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Fetch latest match & rank, then update README
+        env:
+          RIOT_NAME: ${{ secrets.RIOT_NAME }}
+          RIOT_TAG: ${{ secrets.RIOT_TAG }}
+          RIOT_REGION: ${{ secrets.RIOT_REGION }}
+          HENRIK_API_KEY: ${{ secrets.HENRIK_API_KEY }}
+        run: |
+          python -c "
+          import os, urllib.request, urllib.parse, json, re
+          from datetime import datetime
+
+          region = os.environ['RIOT_REGION'].strip()
+          name = urllib.parse.quote(urllib.parse.unquote(os.environ['RIOT_NAME'].strip()))
+          tag = urllib.parse.quote(urllib.parse.unquote(os.environ['RIOT_TAG'].strip()))
+          
+          headers = {'User-Agent': 'Mozilla/5.0'}
+          if os.environ.get('HENRIK_API_KEY'):
+              headers['Authorization'] = os.environ['HENRIK_API_KEY'].strip()
+
+          try:
+              # 1. Fetch most recent match date
+              match_url = f'https://api.henrikdev.xyz/valorant/v3/matches/{region}/{name}/{tag}?size=1'
+              match_req = urllib.request.Request(match_url, headers=headers)
+              with urllib.request.urlopen(match_req) as resp:
+                  match_data = json.loads(resp.read().decode())
+              
+              game_start = match_data['data'][0]['metadata']['game_start']
+              last_date = datetime.fromtimestamp(game_start).strftime('%b %-d')
+
+              # 2. Fetch current competitive rank
+              mmr_url = f'https://api.henrikdev.xyz/valorant/v2/mmr/{region}/{name}/{tag}'
+              mmr_req = urllib.request.Request(mmr_url, headers=headers)
+              with urllib.request.urlopen(mmr_req) as resp:
+                  mmr_data = json.loads(resp.read().decode())
+              
+              current_rank = mmr_data['data']['current_data']['currenttierpatched']
+
+              # 3. Update README.md
+              with open('README.md', 'r', encoding='utf-8') as f:
+                  content = f.read()
+              
+              new_text = (
+                  f'<!-- VALORANT_START -->\n'
+                  f'Last Online on Valorant: **{last_date}**  \n'
+                  f'Current Rank: **{current_rank}**\n'
+                  f'<!-- VALORANT_END -->'
+              )
+              
+              updated = re.sub(
+                  r'<!-- VALORANT_START -->.*?<!-- VALORANT_END -->',
+                  new_text,
+                  content,
+                  flags=re.DOTALL
+              )
+              
+              with open('README.md', 'w', encoding='utf-8') as f:
+                  f.write(updated)
+                  
+              print(f'Successfully updated: {last_date} | {current_rank}')
+          except Exception as e:
+              print('Error updating Valorant stats:', type(e).__name__)
+          "
+
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add README.md
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update Valorant stats" && git push)
