@@ -2,9 +2,16 @@
 
 Hold my gamer socks.
 
+HARDWARE 🛠️ GAME DESIGN 🕹️ PRODUCTIVITY 💡
+
 Check out my most recent project, [**Cyber West Standoff**](https://rkbyte.itch.io/cyber-west-standoff)
 
 <img width="460" height="255" alt="image" src="https://github.com/user-attachments/assets/8c9b3cbb-ebb7-4078-b8c0-a40844c2121f" />
+
+<!-- VALORANT_START -->
+Last Online on VALORANT: **Nov 8**  
+Current Rank: **Platinum 2**
+<!-- VALORANT_END -->
 
 </div>
 
