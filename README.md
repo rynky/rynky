@@ -1,5 +1,10 @@
 Hold my gamer socks.
 
+Check out my most recent project, **Cyber West Standoff**
+
+<img width="920" height="511" alt="image" src="https://github.com/user-attachments/assets/8c9b3cbb-ebb7-4078-b8c0-a40844c2121f" />
+
+
 <!--
 **rynky/rynky** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
