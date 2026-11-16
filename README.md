@@ -1,6 +1,16 @@
 <div align="center">
 
 ```bash
+____ _   _ _  _ _  _ _   _   ___  ____ _  _
+|__/  \_/  |\ | |_/   \_/    |  \ |___ |  |
+|  \   |   | \| | \_   |  [] |__/ |___  \/
+```
+
+</div>
+
+<div align="center">
+
+```bash
 Hold my gamer socks.
 
 HARDWARE 🛠️ GAME DESIGN 🕹️ PRODUCTIVITY 💡
