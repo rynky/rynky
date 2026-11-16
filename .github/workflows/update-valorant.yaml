@@ -34,7 +34,7 @@ jobs:
           region = os.environ['RIOT_REGION'].strip()
           name = urllib.parse.quote(urllib.parse.unquote(os.environ['RIOT_NAME'].strip()))
           tag = urllib.parse.quote(urllib.parse.unquote(os.environ['RIOT_TAG'].strip()))
-          
+
           headers = {'User-Agent': 'Mozilla/5.0'}
           if os.environ.get('HENRIK_API_KEY'):
               headers['Authorization'] = os.environ['HENRIK_API_KEY'].strip()
@@ -45,7 +45,7 @@ jobs:
               match_req = urllib.request.Request(match_url, headers=headers)
               with urllib.request.urlopen(match_req) as resp:
                   match_data = json.loads(resp.read().decode())
-              
+
               game_start = match_data['data'][0]['metadata']['game_start']
               last_date = datetime.fromtimestamp(game_start).strftime('%b %-d')
 
@@ -54,37 +54,32 @@ jobs:
               mmr_req = urllib.request.Request(mmr_url, headers=headers)
               with urllib.request.urlopen(mmr_req) as resp:
                   mmr_data = json.loads(resp.read().decode())
-              
+
               current_rank = mmr_data['data']['current_data']['currenttierpatched']
 
               # 3. Update README.md
               with open('README.md', 'r', encoding='utf-8') as f:
                   content = f.read()
-              
-              line1 = f"Last Online on VALORANT: {last_date}"
-              line2 = f"Current Rank: {current_rank}"
-              width = 96  # Approximate inner character width of a full-width GitHub README code block
 
               new_text = (
                   f'<!-- VALORANT_START -->\n'
-                  f'```bash\n'
-                  f'$ valorant --status\n\n'
-                  f'{line1.center(width).rstrip()}\n'
-                  f'{line2.center(width).rstrip()}\n'
+                  f'```yaml\n'
+                  f'Last Online on VALORANT: {last_date}\n'
+                  f'Current Rank: {current_rank}\n'
                   f'```\n'
                   f'<!-- VALORANT_END -->'
               )
-              
+
               updated = re.sub(
                   r'<!-- VALORANT_START -->.*?<!-- VALORANT_END -->',
-                  new_text,
+                  lambda m: new_text,
                   content,
                   flags=re.DOTALL
               )
-              
+
               with open('README.md', 'w', encoding='utf-8') as f:
                   f.write(updated)
-                  
+
               print(f'Successfully updated: {last_date} | {current_rank}')
           except urllib.error.HTTPError as e:
               error_body = e.read().decode()
