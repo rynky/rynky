@@ -1,6 +1,6 @@
 <div align="center">
 
-```bash
+```yaml
   ____ _   _ _  _ _  _ _   _     ___  ____ _  _
   |__/  \_/  |\ | |_/   \_/      |  \ |___ |  |
  |  \   |   | \| | \_   |   []  |__/ |___  \/
@@ -10,7 +10,7 @@
 
 <div align="center">
 
-```bash
+```yaml
 Hold my gamer socks.
 
 HARDWARE 🛠️ GAME DESIGN 🕹️ PRODUCTIVITY 💡
@@ -28,6 +28,6 @@ https://rkbyte.itch.io/cyber-west-standoff
 <div align="center">
   
 <!-- VALORANT_START -->
-```bash
+```yaml
 Last Online on VALORANT: Nov 8
 Current Rank: Platinum 2
