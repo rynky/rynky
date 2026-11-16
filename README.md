@@ -31,3 +31,7 @@ https://rkbyte.itch.io/cyber-west-standoff
 ```yaml
 Last Online on VALORANT: Nov 8
 Current Rank: Platinum 2
+```
+<!-- VALORANT_END -->
+
+</div>
